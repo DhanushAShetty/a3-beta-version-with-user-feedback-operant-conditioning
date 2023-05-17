@@ -114,16 +114,13 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             chrome.tabs.sendMessage(tabId, { message: message });
           }, 40000);
 
-          // Sending final message after 60 seconds
+          // Send final message after 60 seconds
           setTimeout(() => {
             chrome.tabs.sendMessage(tabId, { message: "Grandma has died...." });
             console.log('Grandma died message sent');
-
-            // Play the death sound
-            chrome.scripting.executeScript({
-                target: { tabId: tabId },
-                function: functionToInject,
-            });
+            
+            // Speak the final message
+            chrome.tts.speak('Grandma has died.');
           }, 60000);
       }
     } else {
