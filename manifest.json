@@ -28,5 +28,12 @@
         "*://*.linkedin.com/*"
       ]
     }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sounds/death_sound.mp3"],
+      "matches": ["<all_urls>"],
+      "use_dynamic_url": false
+    }
   ]
 }
